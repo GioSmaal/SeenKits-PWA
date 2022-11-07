@@ -5,7 +5,11 @@ module.exports = {
     "./components/**/*"
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'dynamicKit': "url('~/img/kitWhite.svg')",
+      }
+    },
   },
   plugins: [],
 }

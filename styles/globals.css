@@ -19,6 +19,17 @@ a {
   box-sizing: border-box;
 }
 
+#home {
+  background-color: #f4f4f8;
+}
+
+#kit {
+  background-image: url('~/img/kitWhite.svg');
+  width: 92px;
+  height: 92px;
+  background-repeat: no-repeat;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
