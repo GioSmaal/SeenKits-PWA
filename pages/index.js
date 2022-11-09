@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import { Fragment, useEffect } from 'react';
 import React, { useState } from 'react';
-import DynamicKit from '../components/dynamicKit'
 
 export default function Home() {
 
@@ -11,11 +10,47 @@ export default function Home() {
     // <DynamicKit />
     console.log(document.getElementById("name").value);
 
-    let div = document.createElement('div');
-    div.id = "kit";
-    //div.innerText = document.getElementById('name').value + document.getElementById('number').value; 
-    // div.innerHTML = <DynamicKit />;
-    document.body.appendChild(div);
+    let biggerParentDiv = document.createElement('div');
+    biggerParentDiv.className = "parentKit"; //parent div 
+
+    let parentDiv = document.createElement('div');
+    parentDiv.className = "kit"; //div to display the kit
+
+    parentDiv.style.filter ="brightness(0.5) sepia(1) saturate(10000%) hue-rotate(" + document.getElementById('color').value + "deg)"; //filter code to give kit color
+
+    if(document.getElementById('color').value < 0) { //if statement for when user wants harder to filter colors
+      if(document.getElementById('color').value == "-10"){ //black
+        parentDiv.style.filter ="brightness(0)";
+      }
+      else if (document.getElementById('color').value == "-20") { //orange
+        parentDiv.style.filter = "invert(74%) sepia(100%) saturate(2206%) hue-rotate(16deg) brightness(114%) contrast(118%)"; //used https://codepen.io/jumarjuaton/full/mdJYWYq generator
+      }
+      else if (document.getElementById('color').value == "-30") { //yellow
+        console.log("hello...")
+        parentDiv.style.filter = "invert(82%) sepia(74%) saturate(614%) hue-rotate(3deg) brightness(1198%) contrast(108%)";
+      }
+      else { //white
+        parentDiv.style.filter ="brightness(1)";
+      }
+    }
+
+
+    let childDivName = document.createElement('div');
+    let childDivNumber = document.createElement('div');
+    childDivName.className = "kitName"; //div to display player name
+    childDivNumber.className = "kitNumber"; //div to display player number
+
+    childDivName.style.color = document.getElementById('textcolor').value; //use form value to define color
+    childDivNumber.style.color = document.getElementById('textcolor').value;
+
+    childDivName.innerText = document.getElementById('name').value;
+    childDivNumber.innerText = document.getElementById('number').value; 
+    biggerParentDiv.appendChild(parentDiv) 
+    biggerParentDiv.appendChild(childDivName);
+    biggerParentDiv.appendChild(childDivNumber);
+
+
+    document.body.appendChild(biggerParentDiv);
 
     
   };
@@ -44,6 +79,7 @@ export default function Home() {
                   name="name"
                   type="text"
                   autoComplete="name"
+                  placeholder= "name"
                   required
                 />
                 <input
@@ -51,8 +87,43 @@ export default function Home() {
                   id="number"
                   name="number"
                   type="text"
+                  placeholder={"number"}
                   required
                 />
+                <select //https://www.quackit.com/css/functions/css_hue-rotate_function.cfm color wheel HUE RED
+                //these options hold values for the color wheel. B&W hold values for the if statement.
+                  className="mb-4 border-b-2"
+                  id="color"
+                  name="color"
+                  required>
+                    <option value="-10">Black</option> 
+                    <option value="-100">White</option>
+                    <option value="0">Red</option>
+                    <option value="-20">Orange</option> 
+                    <option value="-30">Yellow</option>
+                    <option value="120">Green</option>
+                    <option value="180">Light blue</option>
+                    <option value="240">Blue</option>
+                    <option value="270">Purple</option>
+                    <option value="300">Pink</option>
+                </select>
+                
+                <select //https://www.quackit.com/css/functions/css_hue-rotate_function.cfm color wheel HUE RED
+                //these options hold values for the color wheel. B&W hold values for the if statement.
+                  className="mb-4 border-b-2"
+                  id="textcolor"
+                  name="textcolor"
+                  required>
+                    <option value="black">Black</option> 
+                    <option value="white">White</option>
+                    <option value="red">Red</option>
+                    <option value="orange">Orange</option> 
+                    <option value="yellow">Yellow</option>
+                    <option value="green">Green</option>
+                    <option value="blue">Blue</option>
+                    <option value="purple">Purple</option>
+                    <option value="pink">Pink</option>
+                </select>
                 <button
                   type="submit"
                   className="px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700"

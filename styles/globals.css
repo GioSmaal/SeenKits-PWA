@@ -23,11 +23,42 @@ a {
   background-color: #f4f4f8;
 }
 
-#kit {
-  background-image: url('~/img/kitWhite.svg');
-  width: 92px;
+.parentKit {
   height: 92px;
+  width: 76px;
+}
+
+/* filters
+  brightness(0.5) sepia(1) saturate(10000%) 
+ */
+.kit {
+  position: absolute;
+  background-image: url('~/img/kitWhite.svg');
+  height: 92px;
+  width: 76px;
   background-repeat: no-repeat;
+  /* filter: brightness(0.5) sepia(1) saturate(10000%) hue-rotate(280deg);   */
+  z-index: -1;
+}
+
+.kitName {
+  margin: 0 auto;
+  width: 58%;
+  padding-top: 12px;
+  text-align: center;
+  font-size: xx-small;
+  color: red;
+  overflow: hidden;
+}
+
+.kitNumber {
+  margin: 0 auto;
+  width: 55%;
+  padding-top: 4px;
+  text-align: center;
+  font-size: x-large;
+  color: red;
+  overflow: hidden;
 }
 
 @media (prefers-color-scheme: dark) {
