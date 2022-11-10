@@ -18,6 +18,7 @@ export default function Home() {
     parentDiv.style.filter ="brightness(0.5) sepia(1) saturate(10000%) hue-rotate(" + document.getElementById('color').value + "deg)"; //filter code to give kit color
 
     if(document.getElementById('color').value < 0) { //if statement for when user wants harder to filter colors
+      console.log("hi")
       if(document.getElementById('color').value == "-10"){ //black
         parentDiv.style.filter ="brightness(0)";
       }
@@ -49,7 +50,8 @@ export default function Home() {
     biggerParentDiv.appendChild(childDivNumber);
 
 
-    document.body.appendChild(biggerParentDiv);
+    document.getElementById("home").appendChild(biggerParentDiv);
+    // document.body.appendChild(biggerParentDiv);
 
     
   };
