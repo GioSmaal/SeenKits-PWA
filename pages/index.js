@@ -1,13 +1,12 @@
 import Head from 'next/head'
-import { Fragment, useEffect } from 'react';
-import React, { useState } from 'react';
+import { Fragment } from 'react';
+import React from 'react';
 
 export default function Home() {
 
   const submitContact = async (event) => {
     
     event.preventDefault();
-    // <DynamicKit />
     console.log(document.getElementById("name").value);
 
     let biggerParentDiv = document.createElement('div');
@@ -68,11 +67,12 @@ export default function Home() {
           <meta name="theme-color" content="#fff" />
         </Head>
 
+        {/* CREATE NEW KIT COMPONENT */}
           <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
             <div className="px-6 py-4">
-              <div className="mb-2 text-xl font-bold text-black">Contact us</div>
+              <div className="mb-2 text-xl font-bold text-black">New kit</div>
               <form className="flex flex-col" onSubmit={submitContact}>
-                <label htmlFor="name" className="mb-2 italic text-black">Name & number</label>
+                <label htmlFor="name" className="mb-2 italic text-black">Player name</label>
                 <input
                   className="mb-4 border-b-2"
                   id="name"
@@ -82,6 +82,7 @@ export default function Home() {
                   placeholder= "name"
                   required
                 />
+                <label htmlFor="name" className="mb-2 italic text-black">Kit number</label>
                 <input
                   className="mb-4 border-b-2"
                   id="number"
@@ -90,6 +91,7 @@ export default function Home() {
                   placeholder={"number"}
                   required
                 />
+                <label htmlFor="name" className="mb-2 italic text-black">Kit main color</label>
                 <select //https://www.quackit.com/css/functions/css_hue-rotate_function.cfm color wheel HUE RED
                 //these options hold values for the color wheel. B&W hold values for the if statement.
                   className="mb-4 border-b-2"
@@ -108,6 +110,7 @@ export default function Home() {
                     <option value="300">Pink</option>
                 </select>
                 
+                <label htmlFor="name" className="mb-2 italic text-black">Text color</label>
                 <select //https://www.quackit.com/css/functions/css_hue-rotate_function.cfm color wheel HUE RED
                 //these options hold values for the color wheel. B&W hold values for the if statement.
                   className="mb-4 border-b-2"
@@ -133,6 +136,7 @@ export default function Home() {
               </form>
             </div>
           </div>
+          {/* END CREATE NEW KIT COMPONENT */}
       </div>
     </Fragment>
   )
