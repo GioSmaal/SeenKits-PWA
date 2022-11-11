@@ -5,6 +5,18 @@ module.exports = {
     "./components/**/*"
   ],
   theme: {
+    colors: {
+      'text': '#2D3047',
+      'lightBlue': '#055D89',
+      'lineBlue': '#055b86'
+    },
+    fontSize: {
+      sm: '0.8rem',
+      base: '1rem',
+      xl: '1.25rem',
+      xxl: '1.563rem',
+      xxxl: '2.1rem',
+    },
     extend: {
       backgroundImage: {
         'dynamicKit': "url('~/img/kitWhite.svg')",

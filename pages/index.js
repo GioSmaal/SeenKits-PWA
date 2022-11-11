@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import React from 'react';
 
 export default function Home() {
-
+  
   const submitContact = async (event) => {
     
     event.preventDefault();
@@ -51,8 +51,6 @@ export default function Home() {
 
 
     document.getElementById("home").appendChild(biggerParentDiv);
-    // document.body.appendChild(biggerParentDiv);
-
     
   };
   
@@ -69,14 +67,46 @@ export default function Home() {
           <meta name="theme-color" content="#fff" />
         </Head>
 
+        {/* top of the page DYNAMIC KIT COUNT */}
+        <div className='dynaKitCount'>
+          <div className='relative w-70% pt-4 text-text text-center font-bold'>SeenKits</div>
+          <div className='relative w-70% pt-5 text-text text-center font-bold text-xxxl'>0</div>
+        </div>
+
+        {/* STAT BUBBLES */}
+        <div className='flex grid grid-cols-1 content-center mx-10 '>
+          <div className='text-center border-b-2 border-lineBlue'>Top countries seen</div>
+        </div>
+        <div className='flex grid grid-cols-3 content-center mx-10 pt-2'>
+          <div className='text-center rounded-full border-solid border-2 border-lightBlue w-24 pt-0 mx-auto'>
+            <div className='my-5 text-xxxl'>
+              0
+            </div>
+          </div>
+          <div className='text-center rounded-full border-solid border-2 border-lightBlue w-24 pt-0 mx-auto'>
+            <div className='my-5 text-xxxl'>
+              0
+            </div>
+          </div>
+          <div className='text-center rounded-full border-solid border-2 border-lightBlue w-24 pt-0 mx-auto'>
+            <div className='my-5 text-xxxl'>
+              0
+            </div>
+          </div>
+          <div className='text-center text-sm mt-1'>Country</div>
+          <div className='text-center text-sm mt-1'>Country</div>
+          <div className='text-center text-sm mt-1'>Country</div>
+        </div>
+        
+
         {/* CREATE NEW KIT COMPONENT */}
-          <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
+          <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg hidden"> 
             <div className="px-6 py-4">
               <div className="mb-2 text-xl font-bold text-black">New kit</div>
               <form className="flex flex-col" onSubmit={submitContact}>
                 <label htmlFor="name" className="mb-2 italic text-black">Player name</label>
                 <input
-                  className="mb-4 border-b-2"
+                  className="mb-4"
                   id="name"
                   name="name"
                   type="text"
@@ -86,7 +116,7 @@ export default function Home() {
                 />
                 <label htmlFor="name" className="mb-2 italic text-black">Kit number</label>
                 <input
-                  className="mb-4 border-b-2"
+                  className="mb-4"
                   id="number"
                   name="number"
                   type="text"
@@ -96,7 +126,7 @@ export default function Home() {
                 <label htmlFor="name" className="mb-2 italic text-black">Kit main color</label>
                 <select //https://www.quackit.com/css/functions/css_hue-rotate_function.cfm color wheel HUE RED
                 //these options hold values for the color wheel. B&W hold values for the if statement.
-                  className="mb-4 border-b-2"
+                  className="mb-4"
                   id="color"
                   name="color"
                   required>
@@ -115,7 +145,7 @@ export default function Home() {
                 <label htmlFor="name" className="mb-2 italic text-black">Text color</label>
                 <select //https://www.quackit.com/css/functions/css_hue-rotate_function.cfm color wheel HUE RED
                 //these options hold values for the color wheel. B&W hold values for the if statement.
-                  className="mb-4 border-b-2"
+                  className="mb-4"
                   id="textcolor"
                   name="textcolor"
                   required>

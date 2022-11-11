@@ -63,6 +63,19 @@ a {
   z-index: 2;
 }
 
+.dynaKitCount {
+  position: relative;
+  background-image: url('~/img/kitWhite.svg');
+  height: 180px;
+  width: 120px;
+  background-repeat: no-repeat;
+  z-index: 1;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
