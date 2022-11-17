@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { Fragment } from 'react';
 import React from 'react';
+import NavBar from '../components/navBar';
 
 export default function Home() {
   
@@ -203,6 +204,7 @@ export default function Home() {
             </div>
           </div>
           {/* END CREATE NEW KIT COMPONENT */}
+          <NavBar />
       </div>
     </Fragment>
   )
