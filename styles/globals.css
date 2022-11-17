@@ -66,15 +66,23 @@ a {
 .dynaKitCount {
   position: relative;
   background-image: url('~/img/kitWhite.svg');
-  height: 180px;
+  height: 160px;
   width: 120px;
   background-repeat: no-repeat;
   z-index: 1;
   margin: 0 auto;
-  margin-top: 20px;
 }
 
+.showKits {
+  background-image: url('~/img/kitWhite.svg');
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+/* brightness(0.5) sepia(1) saturate(10000%) hue-rotate(" + document.getElementById('color').value + "deg) */
 
+.kitComponent {
+  visibility: hidden;
+}
 
 @media (prefers-color-scheme: dark) {
   html {

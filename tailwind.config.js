@@ -20,6 +20,13 @@ module.exports = {
     extend: {
       backgroundImage: {
         'dynamicKit': "url('~/img/kitWhite.svg')",
+      },
+      width: {
+        '18': '4.5rem',
+        '22': '5.5rem',
+      },
+      saturate: {
+        'max': '100'
       }
     },
   },

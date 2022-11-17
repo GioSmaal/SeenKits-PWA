@@ -51,12 +51,22 @@ export default function Home() {
 
 
     document.getElementById("home").appendChild(biggerParentDiv);
+    document.getElementById('kitComponent').style.visibility = 'hidden'
     
-  };
+  }
+
+  const newKit = async (event) => {
+    event.preventDefault();
+    console.log('hewo');
+    document.getElementById('kitComponent').style.visibility = 'visible';
+  }
+
+  
+  ;
   
   return (
     <Fragment>
-      <div id='home'>
+      <div id='home' className='pt-4'>
 
         <Head>
           <title>Create Next App</title>
@@ -97,10 +107,34 @@ export default function Home() {
           <div className='text-center text-sm mt-1'>Country</div>
           <div className='text-center text-sm mt-1'>Country</div>
         </div>
+
+        {/* RECENT KITS */}
+        <div className='flex grid grid-cols-1 content-center mx-10 pt-6'>
+          <div className='text-center border-b-2 border-lineBlue'>Recent kits</div>
+        </div>
+        <div className='flex grid grid-cols-3 content-center mx-10 pt-2'>
+          <div className='showKits w-22 h-28 pt-0 mx-auto text-center'>
+            <button className='my-5 text-xxxl text-text' onClick={newKit}>
+              +
+            </button>
+          </div>
+          {/* brightness(0.5) sepia(1) saturate(10000%) hue-rotate(" + document.getElementById('color').value + "deg) */}
+          <div className='showKits w-22 h-28 pt-0 mx-auto text-center'>
+            <div className='relative pt-3 text-text text-center text-sm font-bold'>Salah</div>
+            <div className='relative pt-4 text-text text-center text-xl font-bold text-xxxl'>11</div>
+          </div>
+          <div className='showKits w-22 h-28 pt-0 mx-auto text-center'>
+            <div className='relative pt-3 text-text text-center text-sm font-bold'>Messi</div>
+            <div className='relative pt-4 text-text text-center text-xl font-bold text-xxxl'>10</div>
+          </div>
+          <div className='text-center text-sm mt-1'>New kit</div>
+          <div className='text-center text-sm mt-1'>Liverpool</div>
+          <div className='text-center text-sm mt-1'>PSG</div>
+        </div>
         
 
         {/* CREATE NEW KIT COMPONENT */}
-          <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg hidden"> 
+          <div className="kitComponent max-w-xs my-2 overflow-hidden rounded shadow-lg" id='kitComponent'> 
             <div className="px-6 py-4">
               <div className="mb-2 text-xl font-bold text-black">New kit</div>
               <form className="flex flex-col" onSubmit={submitContact}>
