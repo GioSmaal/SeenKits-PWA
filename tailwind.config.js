@@ -8,7 +8,8 @@ module.exports = {
     colors: {
       'text': '#2D3047',
       'lightBlue': '#055D89',
-      'lineBlue': '#055b86'
+      'lineBlue': '#055b86',
+      'gradientBlue': '#055D89',
     },
     fontSize: {
       sm: '0.8rem',

@@ -1,5 +1,15 @@
-function favourites() {
+import { Fragment } from 'react';
+import NavBar from '/components/navBar';
 
-}
+function favorites() {
 
-export default favourites
+
+return (
+    <Fragment>
+        <NavBar />
+
+    </Fragment>
+    
+)}
+
+export default favorites

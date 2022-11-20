@@ -84,6 +84,28 @@ a {
   visibility: hidden;
 }
 
+.halfCircle {
+  /* position: relative; */
+  width: 100%;
+  margin: 0 auto;
+  height: 80px; /* as the half of the width */
+  border-top-left-radius: 100% 70px;  /* 100px of height + 10px of border */
+  border-top-right-radius: 100% 70px; /* 100px of height + 10px of border */
+  border-bottom: 0;
+  z-index: 1;
+}
+
+.halfCircleTop {
+  /* position: absolute; */
+  width: 90%;
+  margin: 0 auto;
+  height: 40px; /* as the half of the width */
+  border-top-left-radius: 100% 70px;  /* 100px of height + 10px of border */
+  border-top-right-radius: 100% 70px; /* 100px of height + 10px of border */
+  border-bottom: 0;
+  z-index: 2;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
