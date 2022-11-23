@@ -10,6 +10,7 @@ module.exports = {
       'lightBlue': '#055D89',
       'lineBlue': '#055b86',
       'gradientBlue': '#055D89',
+      'white': '#ffffff',
     },
     fontSize: {
       sm: '0.8rem',
@@ -26,9 +27,15 @@ module.exports = {
         '18': '4.5rem',
         '22': '5.5rem',
       },
+      borderWidth: {
+        '6': '6px'
+      },
       saturate: {
         'max': '100'
-      }
+      },
+      dropShadow: {
+        'shadowUp': '0 -6px 8px rgba(0, 0, 0, 0.15)',
+      },
     },
   },
   plugins: [],

@@ -135,9 +135,10 @@ export default function Home() {
         
 
         {/* CREATE NEW KIT COMPONENT */}
-          <div className="kitComponent max-w-xs my-2 overflow-hidden rounded shadow-lg" id='kitComponent'> 
+        <div className='relative inline-block h-max bottom-96'>
+          <div className="kitComponent absolute max-w-xs my-2 shadow-lg bg-text" id='kitComponent'> 
             <div className="px-6 py-4">
-              <div className="mb-2 text-xl font-bold text-black">New kit</div>
+              <div className="mb-2 text-xl font-bold text-black text-center">New kit</div>
               <form className="flex flex-col" onSubmit={submitContact}>
                 <label htmlFor="name" className="mb-2 italic text-black">Player name</label>
                 <input
@@ -203,6 +204,7 @@ export default function Home() {
               </form>
             </div>
           </div>
+        </div>
           {/* END CREATE NEW KIT COMPONENT */}
           <NavBar />
       </div>

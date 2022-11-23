@@ -82,6 +82,7 @@ a {
 
 .kitComponent {
   visibility: hidden;
+  margin: 0 auto;
 }
 
 .halfCircle {
