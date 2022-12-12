@@ -6,7 +6,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'calibri';
+  font-family: 'Arial Narrow', Arial, sans-serif;
   background: rgb(5,93,137);
   background: linear-gradient(180deg, rgba(5,93,137,1) 0%, rgba(9,19,38,1) 100%);
 }
@@ -26,9 +26,16 @@ a {
 }
 
 .parentKit {
-  height: 92px;
-  width: 76px;
+  /* height: 92px;
+  width: 76px; */
+
+  position: relative;
+  padding-top: 3px;
+  text-align: center;
+  font-size: small;
+  font-weight: 600;
 }
+/* relative pt-3 text-text text-center text-sm font-bold */
 
 .kit {
   position: absolute;
@@ -69,14 +76,12 @@ a {
   height: 160px;
   width: 120px;
   background-repeat: no-repeat;
-  z-index: 1;
   margin: 0 auto;
 }
 
 .showKits {
   background-image: url('~/img/kitWhite.svg');
   background-repeat: no-repeat;
-  z-index: 1;
 }
 /* brightness(0.5) sepia(1) saturate(10000%) hue-rotate(" + document.getElementById('color').value + "deg) */
 

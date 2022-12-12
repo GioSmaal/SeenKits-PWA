@@ -26,6 +26,7 @@ module.exports = {
       width: {
         '18': '4.5rem',
         '22': '5.5rem',
+        '53': '13.3rem'
       },
       borderWidth: {
         '6': '6px'

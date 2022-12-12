@@ -51,8 +51,9 @@ export default function Home() {
     biggerParentDiv.appendChild(childDivNumber);
 
 
-    document.getElementById("home").appendChild(biggerParentDiv);
-    document.getElementById('kitComponent').style.visibility = 'hidden'
+    biggerParentDiv.className = 'relative pt-3 text-text text-center text-sm font-bold';
+    document.getElementById('recent1').appendChild(biggerParentDiv);
+    document.getElementById('kitComponent').style.visibility = 'hidden';
     
   }
 
@@ -67,7 +68,7 @@ export default function Home() {
   
   return (
     <Fragment>
-      <div id='home' className='pt-4'>
+      <div id='home' className='pt-8 h-screen'>
 
         <Head>
           <title>Create Next App</title>
@@ -86,7 +87,7 @@ export default function Home() {
 
         {/* STAT BUBBLES */}
         <div className='flex grid grid-cols-1 content-center mx-10 '>
-          <div className='text-center border-b-2 border-lineBlue'>Top countries seen</div>
+          <div className='text-center border-b-2 border-lineBlue pt-8'>Top countries seen</div>
         </div>
         <div className='flex grid grid-cols-3 content-center mx-10 pt-2'>
           <div className='text-center rounded-full border-solid border-2 border-lightBlue w-24 pt-0 mx-auto'>
@@ -111,7 +112,7 @@ export default function Home() {
 
         {/* RECENT KITS */}
         <div className='flex grid grid-cols-1 content-center mx-10 pt-6'>
-          <div className='text-center border-b-2 border-lineBlue'>Recent kits</div>
+          <div className='text-center border-b-2 border-lineBlue pt-8'>Newest kits</div>
         </div>
         <div className='flex grid grid-cols-3 content-center mx-10 pt-2'>
           <div className='showKits w-22 h-28 pt-0 mx-auto text-center'>
@@ -120,7 +121,7 @@ export default function Home() {
             </button>
           </div>
           {/* brightness(0.5) sepia(1) saturate(10000%) hue-rotate(" + document.getElementById('color').value + "deg) */}
-          <div className='showKits w-22 h-28 pt-0 mx-auto text-center'>
+          <div id='recent1' className='showKits w-22 h-28 pt-0 mx-auto text-center'>
             <div className='relative pt-3 text-text text-center text-sm font-bold'>Salah</div>
             <div className='relative pt-4 text-text text-center text-xl font-bold text-xxxl'>11</div>
           </div>
@@ -135,8 +136,8 @@ export default function Home() {
         
 
         {/* CREATE NEW KIT COMPONENT */}
-        <div className='relative inline-block h-max bottom-96'>
-          <div className="kitComponent absolute max-w-xs my-2 shadow-lg bg-text" id='kitComponent'> 
+        <div className='relative mx-auto w-53 bottom-96'>
+          <div className="kitComponent absolute my-2 shadow-lg bg-text" id='kitComponent'> 
             <div className="px-6 py-4">
               <div className="mb-2 text-xl font-bold text-black text-center">New kit</div>
               <form className="flex flex-col" onSubmit={submitContact}>
