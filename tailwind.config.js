@@ -11,6 +11,7 @@ module.exports = {
       'lineBlue': '#055b86',
       'gradientBlue': '#055D89',
       'white': '#ffffff',
+      'black': '#000000'
     },
     fontSize: {
       sm: '0.8rem',

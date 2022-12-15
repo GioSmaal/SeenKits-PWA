@@ -136,71 +136,123 @@ export default function Home() {
         
 
         {/* CREATE NEW KIT COMPONENT */}
-        <div className='relative mx-auto w-53 bottom-96'>
-          <div className="kitComponent absolute my-2 shadow-lg bg-text" id='kitComponent'> 
+        <div className='relative mx-auto w-80 bottom-2/4'>
+          <div className="kitComponent absolute my-2 shadow-lg rounded-lg bg-text w-80 h-max" id='kitComponent'> 
             <div className="px-6 py-4">
-              <div className="mb-2 text-xl font-bold text-black text-center">New kit</div>
+              <div className="mb-2 text-xxl font-bold text-center">New kit</div>
               <form className="flex flex-col" onSubmit={submitContact}>
-                <label htmlFor="name" className="mb-2 italic text-black">Player name</label>
-                <input
-                  className="mb-4"
-                  id="name"
-                  name="name"
-                  type="text"
-                  autoComplete="name"
-                  placeholder= "name"
-                  required
-                />
-                <label htmlFor="name" className="mb-2 italic text-black">Kit number</label>
-                <input
-                  className="mb-4"
-                  id="number"
-                  name="number"
-                  type="text"
-                  placeholder={"number"}
-                  required
-                />
-                <label htmlFor="name" className="mb-2 italic text-black">Kit main color</label>
-                <select //https://www.quackit.com/css/functions/css_hue-rotate_function.cfm color wheel HUE RED
-                //these options hold values for the color wheel. B&W hold values for the if statement.
-                  className="mb-4"
-                  id="color"
-                  name="color"
-                  required>
-                    <option value="-10">Black</option> 
-                    <option value="-100">White</option>
-                    <option value="0">Red</option>
-                    <option value="-20">Orange</option> 
-                    <option value="-30">Yellow</option>
-                    <option value="120">Green</option>
-                    <option value="180">Light blue</option>
-                    <option value="240">Blue</option>
-                    <option value="270">Purple</option>
-                    <option value="300">Pink</option>
-                </select>
-                
-                <label htmlFor="name" className="mb-2 italic text-black">Text color</label>
-                <select //https://www.quackit.com/css/functions/css_hue-rotate_function.cfm color wheel HUE RED
-                //these options hold values for the color wheel. B&W hold values for the if statement.
-                  className="mb-4"
-                  id="textcolor"
-                  name="textcolor"
-                  required>
-                    <option value="black">Black</option> 
-                    <option value="white">White</option>
-                    <option value="red">Red</option>
-                    <option value="orange">Orange</option> 
-                    <option value="yellow">Yellow</option>
-                    <option value="green">Green</option>
-                    <option value="blue">Blue</option>
-                    <option value="purple">Purple</option>
-                    <option value="pink">Pink</option>
-                </select>
+                <div className='flex flex-col grid grid-cols-2'>
+                  <div>
+                    <label htmlFor="name" className="mb-2 italic">Country</label>
+                    <select 
+                      className="mb-4 bg-white rounded text-black w-5/6"
+                      id="country"
+                      name="country"
+                      required>
+                        <option>Germany</option> 
+                        <option>Netherlands</option>
+                        <option>Belgium</option>
+                        <option>Spain</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="name" className="mb-2 italic">League</label>
+                    <select 
+                      className="mb-4 bg-white rounded text-black w-5/6"
+                      id="league"
+                      name="league"
+                      required>
+                        <option>Bundesliga</option> 
+                        <option>Netherlands</option>
+                        <option>Pro league</option>
+                        <option>La liga</option>
+                    </select>
+                  </div>
+                  <div className='grid grid-cols-1'>
+                    <label htmlFor="name" className="mb-2 italic">Team</label>
+                    <select 
+                      className="mb-4 bg-white rounded text-black w-5/6"
+                      id="team"
+                      name="team"
+                      required>
+                        <option>Bayern</option> 
+                        <option>Dortmund</option>
+                        <option>Schalke</option>
+                        <option>HSV</option>
+                    </select>
+                  </div>
+                  <div className='flex flex-col grid grid-cols-2'>
+                    <div>
+                      <label htmlFor="name" className="mb-2 italic">Num.</label>
+                      <input
+                        className="mb-4 mt-2 bg-white rounded text-black w-2/3"
+                        id="name"
+                        name="name"
+                        type="text"
+                        autoComplete="#"
+                        placeholder= "#"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="name" className="mb-2 italic">Name </label>
+                      <input
+                        className="mb-4 mt-2 bg-white rounded text-black w-full"
+                        id="number"
+                        name="name"
+                        type="text"
+                        autoComplete="name"
+                        placeholder= "name"
+                        required
+                      />
+                    </div>
+                    
+                  </div>
+                  <div>
+                  <label htmlFor="name" className="mb-2 italic">Kit main color</label>
+                  <select //https://www.quackit.com/css/functions/css_hue-rotate_function.cfm color wheel HUE RED
+                  //these options hold values for the color wheel. B&W hold values for the if statement.
+                    className="mb-4 bg-white rounded text-black w-5/6"
+                    id="color"
+                    name="color"
+                    required>
+                      <option value="-10">Black</option> 
+                      <option value="-100">White</option>
+                      <option value="0">Red</option>
+                      <option value="-20">Orange</option> 
+                      <option value="-30">Yellow</option>
+                      <option value="120">Green</option>
+                      <option value="180">Light blue</option>
+                      <option value="240">Blue</option>
+                      <option value="270">Purple</option>
+                      <option value="300">Pink</option>
+                  </select>
+                  </div>
+                  <div>
+                  <label htmlFor="name" className="mb-2 italic">Text color</label>
+                  <select //https://www.quackit.com/css/functions/css_hue-rotate_function.cfm color wheel HUE RED
+                  //these options hold values for the color wheel. B&W hold values for the if statement.
+                    className="mb-4 bg-white rounded text-black w-5/6"
+                    id="textcolor"
+                    name="textcolor"
+                    required>
+                      <option value="black">Black</option> 
+                      <option value="white">White</option>
+                      <option value="red">Red</option>
+                      <option value="orange">Orange</option> 
+                      <option value="yellow">Yellow</option>
+                      <option value="green">Green</option>
+                      <option value="blue">Blue</option>
+                      <option value="purple">Purple</option>
+                      <option value="pink">Pink</option>
+                  </select>
+                  </div>
+                </div>
                 <button
                   type="submit"
-                  className="px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700"
+                  className="mx-auto py-2 font-bold text-white bg-lineBlue rounded-lg w-1/2 shadow-lg"
                 >
-                  Submit
+                  Save
                 </button>
               </form>
             </div>
