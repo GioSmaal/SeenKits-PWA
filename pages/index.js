@@ -46,13 +46,13 @@ export default function Home() {
 
     childDivName.innerText = document.getElementById('name').value;
     childDivNumber.innerText = document.getElementById('number').value; 
-    biggerParentDiv.appendChild(parentDiv) 
-    biggerParentDiv.appendChild(childDivName);
-    biggerParentDiv.appendChild(childDivNumber);
-
+    parentDiv.appendChild(childDivName);
+    parentDiv.appendChild(childDivNumber);
+    biggerParentDiv.appendChild(parentDiv);
 
     biggerParentDiv.className = 'relative pt-3 text-text text-center text-sm font-bold';
-    document.getElementById('recent1').appendChild(biggerParentDiv);
+    // document.body.appendChild(biggerParentDiv);
+    document.getElementById('home').appendChild(biggerParentDiv);
     document.getElementById('kitComponent').style.visibility = 'hidden';
     
   }
@@ -186,8 +186,8 @@ export default function Home() {
                       <label htmlFor="name" className="mb-2 italic">Num.</label>
                       <input
                         className="mb-4 mt-2 bg-white rounded text-black w-2/3"
-                        id="name"
-                        name="name"
+                        id="number"
+                        name="number"
                         type="text"
                         autoComplete="#"
                         placeholder= "#"
@@ -198,7 +198,7 @@ export default function Home() {
                       <label htmlFor="name" className="mb-2 italic">Name </label>
                       <input
                         className="mb-4 mt-2 bg-white rounded text-black w-full"
-                        id="number"
+                        id="name"
                         name="name"
                         type="text"
                         autoComplete="name"
