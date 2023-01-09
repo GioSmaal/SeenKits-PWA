@@ -2,13 +2,51 @@ import Head from 'next/head'
 import { Fragment } from 'react';
 import React from 'react';
 import NavBar from '../components/navBar';
+import { supabase } from "../lib/supabase";
+import { useState } from "react";
 
 export default function Home() {
+  
+  //database 
+  const initialState = {
+    player_name: "",
+    number: "",
+  }
+
+  const [kitsData, setKitsData] = useState(initialState);
+
+  const { player_name, number } = kitsData;
+
+  const handleChange = (e) => {
+    setKitsData({ ...kitsData, [e.target.name]: e.target.value });
+  };
+
+  const createKits = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("kits")
+        .insert([
+          {
+            player_name,
+            number,
+          },  
+        ])
+        .select()
+        .eq('kit_id', '17')
+        .single();
+        document.getElementById("recent1name").innerHTML = data.player_name;
+      if (error) throw error;
+      alert("gg");
+      setKitsData(initialState);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+  //database end
   
   const submitContact = async (event) => {
     
     event.preventDefault();
-    console.log(document.getElementById("name").value);
 
     let biggerParentDiv = document.createElement('div');
     biggerParentDiv.className = "parentKit"; //parent div 
@@ -44,7 +82,7 @@ export default function Home() {
     childDivName.style.color = document.getElementById('textcolor').value; //use form value to define color
     childDivNumber.style.color = document.getElementById('textcolor').value;
 
-    childDivName.innerText = document.getElementById('name').value;
+    childDivName.innerText = document.getElementById('player_name').value;
     childDivNumber.innerText = document.getElementById('number').value; 
     parentDiv.appendChild(childDivName);
     parentDiv.appendChild(childDivNumber);
@@ -130,7 +168,7 @@ export default function Home() {
             <div className='relative pt-4 text-text text-center text-xl font-bold text-xxxl'>10</div>
           </div>
           <div className='text-center text-sm mt-1'>New kit</div>
-          <div className='text-center text-sm mt-1'>Liverpool</div>
+          <div id='recent1name' className='text-center text-sm mt-1'>Liverpool</div>
           <div className='text-center text-sm mt-1'>PSG</div>
         </div>
         
@@ -191,6 +229,7 @@ export default function Home() {
                         type="text"
                         autoComplete="#"
                         placeholder= "#"
+                        onChange={handleChange}
                         required
                       />
                     </div>
@@ -198,11 +237,12 @@ export default function Home() {
                       <label htmlFor="name" className="mb-2 italic">Name </label>
                       <input
                         className="mb-4 mt-2 bg-white rounded text-black w-full"
-                        id="name"
-                        name="name"
+                        id="player_name"
+                        name="player_name"
                         type="text"
                         autoComplete="name"
                         placeholder= "name"
+                        onChange={handleChange}
                         required
                       />
                     </div>
@@ -251,6 +291,7 @@ export default function Home() {
                 <button
                   type="submit"
                   className="mx-auto py-2 font-bold text-white bg-lineBlue rounded-lg w-1/2 shadow-lg"
+                  onClick={createKits}
                 >
                   Save
                 </button>
