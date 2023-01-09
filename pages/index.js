@@ -13,12 +13,13 @@ export default function Home() {
     number: "",
   }
 
+  const [kitsUpdate, setKitsUpdate] = useState(initialState);
   const [kitsData, setKitsData] = useState(initialState);
 
-  const { player_name, number } = kitsData;
+  const { player_name, number } = kitsUpdate;
 
   const handleChange = (e) => {
-    setKitsData({ ...kitsData, [e.target.name]: e.target.value });
+    setKitsUpdate({ ...kitsUpdate, [e.target.name]: e.target.value });
   };
 
   const createKits = async () => {
@@ -33,15 +34,32 @@ export default function Home() {
         ])
         .select()
         .eq('kit_id', '17')
-        .single();
-        document.getElementById("recent1name").innerHTML = data.player_name;
+        // .single();
       if (error) throw error;
       alert("gg");
-      setKitsData(initialState);
+      setKitsUpdate(initialState);
     } catch (error) {
       alert(error.message);
     }
   };
+
+  const retrieveKitsData = async () => {
+    try {
+      // Use a SELECT query to retrieve the desired data from the database
+      const { data, error } = await supabase
+        .from("kits")
+        .select()
+        .eq("kit_id", "17")
+        .single ();
+      if (error) throw error;
+  
+      // Set the data to a state variable in your React component using the setState hook
+      setKitsData(data);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   //database end
   
   const submitContact = async (event) => {
@@ -160,8 +178,8 @@ export default function Home() {
           </div>
           {/* brightness(0.5) sepia(1) saturate(10000%) hue-rotate(" + document.getElementById('color').value + "deg) */}
           <div id='recent1' className='showKits w-22 h-28 pt-0 mx-auto text-center'>
-            <div className='relative pt-3 text-text text-center text-sm font-bold'>Salah</div>
-            <div className='relative pt-4 text-text text-center text-xl font-bold text-xxxl'>11</div>
+            <div className='relative pt-3 text-text text-center text-sm font-bold'>{kitsData.player_name}</div>
+            <div className='relative pt-4 text-text text-center text-xl font-bold text-xxxl'>{kitsData.number}</div>
           </div>
           <div className='showKits w-22 h-28 pt-0 mx-auto text-center'>
             <div className='relative pt-3 text-text text-center text-sm font-bold'>Messi</div>
@@ -291,8 +309,10 @@ export default function Home() {
                 <button
                   type="submit"
                   className="mx-auto py-2 font-bold text-white bg-lineBlue rounded-lg w-1/2 shadow-lg"
-                  onClick={createKits}
-                >
+                  onClick={() => {
+                    createKits();
+                    retrieveKitsData();
+                  }}>
                   Save
                 </button>
               </form>
