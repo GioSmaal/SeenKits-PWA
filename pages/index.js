@@ -8,6 +8,10 @@ import { useState } from "react";
 export default function Home() {
   
   //database 
+  React.useEffect(() => {
+    retrieveKitsData();
+  }, []);
+  
   const initialState = {
     player_name: "",
     number: "",
@@ -52,7 +56,8 @@ export default function Home() {
         .eq("kit_id", "17")
         .single ();
       if (error) throw error;
-  
+      
+      localStorage.setItem("kitsData", JSON.stringify({ playerName: data.player_name, number: data.number }));
       // Set the data to a state variable in your React component using the setState hook
       setKitsData(data);
     } catch (error) {
@@ -110,17 +115,18 @@ export default function Home() {
     // document.body.appendChild(biggerParentDiv);
     document.getElementById('home').appendChild(biggerParentDiv);
     document.getElementById('kitComponent').style.visibility = 'hidden';
-    
+
+    const storedData = localStorage.getItem("kitsData");
+    if (storedData) {
+      setKitsData(JSON.parse(storedData));
+    }    
   }
 
   const newKit = async (event) => {
     event.preventDefault();
     console.log('hewo');
     document.getElementById('kitComponent').style.visibility = 'visible';
-  }
-
-  
-  ;
+  };
   
   return (
     <Fragment>
@@ -179,7 +185,7 @@ export default function Home() {
           {/* brightness(0.5) sepia(1) saturate(10000%) hue-rotate(" + document.getElementById('color').value + "deg) */}
           <div id='recent1' className='showKits w-22 h-28 pt-0 mx-auto text-center'>
             <div className='relative pt-3 text-text text-center text-sm font-bold'>{kitsData.player_name}</div>
-            <div className='relative pt-4 text-text text-center text-xl font-bold text-xxxl'>{kitsData.number}</div>
+            <div id='recentNumber1' className='relative pt-4 text-text text-center text-xl font-bold text-xxxl'>{kitsData.number}</div>
           </div>
           <div className='showKits w-22 h-28 pt-0 mx-auto text-center'>
             <div className='relative pt-3 text-text text-center text-sm font-bold'>Messi</div>
