@@ -37,8 +37,6 @@ export default function Home() {
           },  
         ])
         .select()
-        .eq('kit_id', '17')
-        // .single();
       if (error) throw error;
       alert("gg");
       setKitsUpdate(initialState);
